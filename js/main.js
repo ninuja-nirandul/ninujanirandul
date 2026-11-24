@@ -471,8 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
 ` : "") +
         (type ? `Session / Date: ${type}
 
-` : "
-") +
+` : "\n") +
         message
       );
 
