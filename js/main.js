@@ -200,8 +200,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <section class="testimonial-section reveal">
         <p class="eyebrow">KIND WORDS</p>
-        <p class="testimonial-quote" id="testimonialQuote">${SITE_DATA.testimonials[0].quote}</p>
-        <p class="testimonial-author" id="testimonialAuthor">${SITE_DATA.testimonials[0].author}</p>
+        <div class="testimonial-stage">
+          <button class="testimonial-arrow" id="testimonialPrev" aria-label="Previous testimonial">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polyline points="15 5 8 12 15 19"></polyline></svg>
+          </button>
+          <div class="testimonial-body">
+            <p class="testimonial-quote" id="testimonialQuote">${SITE_DATA.testimonials[0].quote}</p>
+            <p class="testimonial-author" id="testimonialAuthor">${SITE_DATA.testimonials[0].author}</p>
+          </div>
+          <button class="testimonial-arrow" id="testimonialNext" aria-label="Next testimonial">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><polyline points="9 5 16 12 9 19"></polyline></svg>
+          </button>
+        </div>
         <div class="testimonial-dots">
           ${SITE_DATA.testimonials
             .map(
