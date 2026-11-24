@@ -258,16 +258,23 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
 
-    // Testimonial switcher
-    document.querySelectorAll(".testimonial-dot").forEach((dot) => {
-      dot.addEventListener("click", () => {
-        const idx = Number(dot.dataset.tindex);
-        document.getElementById("testimonialQuote").textContent = SITE_DATA.testimonials[idx].quote;
-        document.getElementById("testimonialAuthor").textContent = SITE_DATA.testimonials[idx].author;
-        document.querySelectorAll(".testimonial-dot").forEach((d) => d.classList.remove("active"));
-        dot.classList.add("active");
-      });
+    // Testimonial switcher (dots + prev/next arrows)
+    const testimonialDots = document.querySelectorAll(".testimonial-dot");
+    let testimonialIndex = 0;
+
+    function showTestimonial(idx) {
+      const total = SITE_DATA.testimonials.length;
+      testimonialIndex = (idx + total) % total;
+      document.getElementById("testimonialQuote").textContent = SITE_DATA.testimonials[testimonialIndex].quote;
+      document.getElementById("testimonialAuthor").textContent = SITE_DATA.testimonials[testimonialIndex].author;
+      testimonialDots.forEach((d, i) => d.classList.toggle("active", i === testimonialIndex));
+    }
+
+    testimonialDots.forEach((dot) => {
+      dot.addEventListener("click", () => showTestimonial(Number(dot.dataset.tindex)));
     });
+    document.getElementById("testimonialPrev").addEventListener("click", () => showTestimonial(testimonialIndex - 1));
+    document.getElementById("testimonialNext").addEventListener("click", () => showTestimonial(testimonialIndex + 1));
   }
 
   function renderPortfolio() {
