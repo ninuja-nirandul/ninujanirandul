@@ -1,139 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NINUJA — Modern Portrait & Wedding Photography</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Coming Soon</title>
+<style>
+:root{--bg:#f4f2ee;--fg:#141414;--mute:#7a7770;--line:#d9d5cc;--a:#e8c9a8;--b:#b9c7d6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0e0f;--fg:#f1efea;--mute:#8d8a83;--line:#2a2a2c;--a:#5a3d2a;--b:#26384d}}
+:root[data-theme="dark"]{--bg:#0e0e0f;--fg:#f1efea;--mute:#8d8a83;--line:#2a2a2c;--a:#5a3d2a;--b:#26384d}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;overflow:hidden;position:relative}
+.orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:.7;animation:float 18s ease-in-out infinite}
+.o1{width:50vmax;height:50vmax;background:var(--a);top:-15vmax;left:-10vmax}
+.o2{width:45vmax;height:45vmax;background:var(--b);bottom:-18vmax;right:-12vmax;animation-delay:-9s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(6vmax,4vmax) scale(1.12)}}
+main{position:relative;z-index:1;min-height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:28px 6vw}
+.top,.bot{display:flex;justify-content:space-between;align-items:center;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.center{text-align:center}
+.tag{display:inline-block;padding:7px 16px;border:1px solid var(--line);border-radius:99px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mute);backdrop-filter:blur(6px)}
+h1{font-weight:300;font-size:clamp(46px,11vw,150px);letter-spacing:-.04em;line-height:.95;margin:28px 0 20px}
+h1 em{font-style:italic;font-family:Georgia,"Times New Roman",serif;font-weight:400}
+p.lead{max-width:44ch;margin:0 auto;color:var(--mute);font-size:clamp(15px,1.7vw,19px);line-height:1.5}
+.count{display:flex;justify-content:center;gap:clamp(14px,4vw,48px);margin:44px 0 36px}
+.count div{min-width:64px}
+.count b{display:block;font-weight:300;font-size:clamp(30px,6vw,64px);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.count span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.btn{display:inline-block;padding:14px 30px;border-radius:99px;background:var(--fg);color:var(--bg);text-decoration:none;font-size:14px;letter-spacing:.06em;transition:transform .3s,opacity .3s}
+.btn:hover{transform:translateY(-2px);opacity:.88}
+.bot a{color:inherit;text-decoration:none;color:var(--mute);transition:color .3s}
+.bot a:hover{color:var(--fg)}
+.bot nav{display:flex;gap:22px}
+.in{opacity:0;transform:translateY(20px);animation:up 1s ease forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.3s}.d3{animation-delay:.5s}.d4{animation-delay:.7s}
+@keyframes up{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.orb,.in{animation:none;opacity:1;transform:none}}
+</style>
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="site-header" id="siteHeader">
-    <a href="#home" class="brand-logo" data-route="home">NINUJA</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open Navigation Menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </header>
-
-  <!-- Full-Screen Alabaster Overlay Menu -->
-  <div class="menu-overlay" id="menuOverlay" aria-hidden="true">
-    <button class="menu-close" id="menuClose" aria-label="Close Navigation Menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-        <line x1="4" y1="4" x2="20" y2="20"></line>
-        <line x1="20" y1="4" x2="4" y2="20"></line>
-      </svg>
-    </button>
-
-    <nav class="overlay-nav">
-      <a href="#home" class="overlay-link" data-route="home">HOME</a>
-      <a href="#about" class="overlay-link" data-route="about">ABOUT</a>
-      
-      <div class="overlay-accordion">
-        <button class="overlay-link accordion-btn" data-target="portfolioSubmenu">
-          PORTFOLIO <span class="plus-icon">+</span>
-        </button>
-        <div class="overlay-submenu" id="portfolioSubmenu">
-          <a href="#portfolio" class="submenu-link" data-route="portfolio">ALL GALLERIES</a>
-          <a href="#category-weddings" class="submenu-link" data-route="category" data-category="weddings">WEDDINGS</a>
-          <a href="#category-engagements" class="submenu-link" data-route="category" data-category="engagements">ENGAGEMENTS</a>
-          <a href="#category-portraits" class="submenu-link" data-route="category" data-category="portraits">PORTRAITS</a>
-          <a href="#category-couples" class="submenu-link" data-route="category" data-category="couples">COUPLES</a>
-        </div>
-      </div>
-
-      <a href="#blog" class="overlay-link" data-route="blog">BLOG</a>
-
-      <div class="overlay-accordion">
-        <button class="overlay-link accordion-btn" data-target="infoSubmenu">
-          INFO <span class="plus-icon">+</span>
-        </button>
-        <div class="overlay-submenu" id="infoSubmenu">
-          <a href="#info" class="submenu-link" data-route="info">EXPERIENCE & FAQ</a>
-          <a href="#info" class="submenu-link" data-route="info">INVESTMENT</a>
-        </div>
-      </div>
-
-      <a href="#contact" class="overlay-link" data-route="contact">CONTACT</a>
-    </nav>
-  </div>
-
-  <!-- Main Content Container -->
-  <main id="appMain">
-    <!-- Views injected dynamically via js/main.js -->
-  </main>
-
-  <!-- Shared Footer (Instagram Strip + Links + Copyright) -->
-  <footer class="site-footer" id="siteFooter">
-    <section class="insta-section reveal">
-      <p class="eyebrow">FOLLOW ME ON INSTAGRAM</p>
-      <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="insta-handle">@NINUJANIRANDUL</a>
-      <div class="insta-grid" id="instaGrid"></div>
-    </section>
-
-    <div class="footer-bottom reveal">
-      <div class="social-icons">
-        <a href="#" aria-label="Facebook">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5z"/></svg>
-        </a>
-        <a href="#" aria-label="Instagram">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
-        </a>
-        <a href="#" aria-label="TikTok">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 0 1 15.54 3h-3.09v12.4a2.592 2.592 0 0 1-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg>
-        </a>
-        <a href="#" aria-label="Pinterest">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.088-.791-.167-2.005.035-2.868.181-.78 1.172-4.97 1.172-4.97s-.299-.6-.299-1.486c0-1.39.806-2.428 1.81-2.428.852 0 1.264.64 1.264 1.408 0 .858-.546 2.14-.828 3.33-.236.995.5 1.807 1.48 1.807 1.778 0 3.144-1.874 3.144-4.58 0-2.393-1.72-4.068-4.176-4.068-2.845 0-4.516 2.135-4.516 4.34 0 .859.331 1.781.745 2.281a.3.3 0 0 1 .069.288l-.278 1.133c-.044.183-.145.223-.335.134-1.249-.581-2.03-2.407-2.03-3.874 0-3.154 2.292-6.052 6.608-6.052 3.469 0 6.165 2.473 6.165 5.776 0 3.447-2.173 6.22-5.19 6.22-1.013 0-1.965-.525-2.291-1.148l-.623 2.378c-.226.869-.835 1.958-1.244 2.621.937.29 1.931.446 2.962.446 5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
-        </a>
-        <a href="#" aria-label="YouTube">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-        </a>
-      </div>
-
-      <nav class="footer-links">
-        <a href="#home" data-route="home">HOME</a>
-        <a href="#about" data-route="about">ABOUT</a>
-        <a href="#portfolio" data-route="portfolio">PORTFOLIO +</a>
-        <a href="#blog" data-route="blog">BLOG</a>
-        <a href="#info" data-route="info">INFO +</a>
-        <a href="#contact" data-route="contact">CONTACT</a>
-      </nav>
-
-      <p class="copyright">&copy; 2026 Ninuja</p>
-
-      <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-          <line x1="12" y1="20" x2="12" y2="4"></line>
-          <polyline points="6 10 12 4 18 10"></polyline>
-        </svg>
-      </button>
-
-      <div class="monogram-badge">N</div>
-    </div>
-  </footer>
-
-  <!-- Full-Screen Lightbox Viewer -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
-        <line x1="4" y1="4" x2="20" y2="20"></line>
-        <line x1="20" y1="4" x2="4" y2="20"></line>
-      </svg>
-    </button>
-    <button class="lightbox-arrow prev" id="lightboxPrev" aria-label="Previous Image">&#8592;</button>
-    <div class="lightbox-content">
-      <img id="lightboxImg" src="" alt="Gallery Preview" />
-      <p id="lightboxCaption" class="lightbox-caption"></p>
-    </div>
-    <button class="lightbox-arrow next" id="lightboxNext" aria-label="Next Image">&#8594;</button>
-  </div>
-
-  <script src="js/data.js"></script>
-  <script src="js/main.js"></script>
+<div class="orb o1"></div><div class="orb o2"></div>
+<main>
+<div class="top in"><span>Ninuja Nirandul</span><span>2026</span></div>
+<div class="center">
+<span class="tag in d1">Something new is on the way</span>
+<h1 class="in d2">Coming <em>Soon</em></h1>
+<p class="lead in d2">We are putting the finishing touches on our new website. Thank you for your patience, we will be live shortly.</p>
+<div class="count in d3" id="count">
+<div><b id="dd">00</b><span>Days</span></div>
+<div><b id="hh">00</b><span>Hours</span></div>
+<div><b id="mm">00</b><span>Minutes</span></div>
+<div><b id="ss">00</b><span>Seconds</span></div>
+</div>
+<a class="btn in d4" href="mailto:info.ninujanirandul@icloud.com">Get in touch</a>
+</div>
+<div class="bot in d4"><span>www.ninujanirandul.com</span><nav><a href="#"></a><a href="#"></a></nav></div>
+</main>
+<script>
+//  Date
+var target=new Date("2027-01-15T09:00:00").getTime();
+function p(n){return String(n).padStart(2,"0")}
+function tick(){
+var d=Math.max(0,target-Date.now());
+document.getElementById("dd").textContent=p(Math.floor(d/864e5));
+document.getElementById("hh").textContent=p(Math.floor(d%864e5/36e5));
+document.getElementById("mm").textContent=p(Math.floor(d%36e5/6e4));
+document.getElementById("ss").textContent=p(Math.floor(d%6e4/1e3));
+}
+tick();setInterval(tick,1000);
+</script>
 </body>
 </html>
