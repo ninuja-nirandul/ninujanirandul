@@ -506,6 +506,37 @@ img {
   margin: 24px auto;
   color: var(--text-charcoal);
 }
+.testimonial-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.testimonial-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.testimonial-arrow {
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.testimonial-arrow:hover {
+  color: var(--text-charcoal);
+}
+
+#testimonialPrev:hover { transform: translateX(-3px); }
+#testimonialNext:hover { transform: translateX(3px); }
 
 .testimonial-author {
   font-size: 0.72rem;
