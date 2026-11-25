@@ -1,7 +1,7 @@
 const SITE_DATA = {
   contact: {
-    whatsappNumber: "94770000000", // Replace with your WhatsApp number (with country code, no +)
-    emailAddress: "hello@ninuja.com" // Replace with your email address
+    whatsappNumber: "94701329164",
+    emailAddress: "info.ninujanirandul@icloud.com"
   },
 
   heroSlides: [
